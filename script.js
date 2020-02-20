@@ -9,6 +9,12 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
+
+const mute = document.getElementById('mute');
+const volumeSlider = document.getElementById('volumeSlider');
+
+
+
 //song titles
 const songs = ['acousticbreeze', 'anewbeginning', 'goinghigher', 'happyrock', 'littleidea', 'memories', 'badass', 'cute', 'energy', 'jazzyfrenchy', 'relaxing', 'retrosoul', 'rumble', 'thejazzpiano'];
 
@@ -90,7 +96,30 @@ function setProgress(e){
 }
 
 
+//set volume
+function setVolume(){
+    // return true;
+    audio.volume = volumeSlider.value / 100;
+    // console.log(audio.volume)
+    if(volumeSlider.value == 0){
+        mute.innerHTML = `<i class="fas fa-volume-mute fa-2x"></i>`
+    } else {
+        mute.innerHTML = `<i class="fas fa-volume-up fa-2x"></i>`
+    }
+}
 
+//mute audio
+function audioStatus(){
+    // return true;
+    if(audio.muted){
+        audio.muted = false;
+        mute.innerHTML = `<i class="fas fa-volume-up fa-2x"></i>`
+    }else {
+        // video.pause();
+        audio.muted = true;
+        mute.innerHTML = `<i class="fas fa-volume-mute fa-2x"></i>`
+    }
+}
 
 
 //event listeners
@@ -117,3 +146,7 @@ progressContainer.addEventListener('click', setProgress);
 
 //song ends
 audio.addEventListener('ended', nextSong);
+
+//set volume event
+mute.addEventListener('click', audioStatus);
+volumeSlider.addEventListener('change', setVolume);

@@ -3,14 +3,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script
       src="https://kit.fontawesome.com/c9da5a481d.js"
       crossorigin="anonymous"
     ></script>
-    <title>music player</title>
+    <title>kebele music player</title>
   </head>
   <body>
-    <h1>music player</h1>
+    <h1>kebele music player</h1>
     <div class="music-container" id="music-container">
       <div class="music-info">
         <h4 id="title"></h4>
@@ -18,7 +24,7 @@
           <div class="progress" id="progress"></div>
         </div>
       </div>
-      <audio src="music/bensound-acousticbreeze.mp3" id="audio"></audio>
+      <audio src="music/acousticbreeze.mp3" id="audio"></audio>
 
       <div class="img-container">
         <img src="images/acousticbreeze.jpg" alt="music-cover" id="cover" />
@@ -33,8 +39,52 @@
         <button id="next" class="action-btn">
           <i class="fas fa-forward"></i>
         </button>
+
+        <button class="btn" id="mute">
+          <i class="fas fa-volume-up fa-2x"></i>
+        </button>
+
+        <input
+          type="range"
+          id="volumeSlider"
+          class="slider"
+          min="0"
+          max="100"
+          step="1"
+          value="100"
+        />
       </div>
     </div>
+
+    <div class="playlist" id="playlist">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><img src="images/badass.jpg" alt="" /></td>
+            <td>badass</td>
+          </tr>
+          <tr>
+            <td>Jacob</td>
+            <td>Thornton</td>
+          </tr>
+          <tr>
+            <td>Larry</td>
+            <td>the Bird</td>
+          </tr>
+          <tr>
+            <td>Larry</td>
+            <td>the Bird</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer>
+      <p>
+        music by
+        <a href="https://www.bensound.com/" target="_blank">bensound</a>
+      </p>
+    </footer>
     <script src="script.js"></script>
+    <script src="list.js"></script>
   </body>
 </html>
